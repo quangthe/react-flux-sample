@@ -30,10 +30,6 @@ gulp.task('prod', function () {
 });
 
 gulp.task('watch', ['react', 'sass', 'browser-sync'], function () {
-  //browserSync.init({
-  //  server: "./"
-  //});
-
   gulp.watch('./js/**/*.js', ['react']);
   gulp.watch('./sass/**/*.scss', ['sass']);
 });
@@ -62,4 +58,3 @@ gulp.task('nodemon', function (cb) {
 });
 
 gulp.task('default', ['watch']);
-
