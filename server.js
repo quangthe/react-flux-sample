@@ -13,14 +13,61 @@ app.use(function (req, res, next) {
   // Set permissive CORS header - this allows this server to be used only as
   // an API server in conjunction with something like webpack-dev-server.
   res.setHeader('Access-Control-Allow-Origin', '*');
-
-  // Disable caching so we'll always get the latest comments.
   res.setHeader('Cache-Control', 'no-cache');
   next();
 });
 
-app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname, '.', 'index.html'))
+app.get('/api/env-list', function (req, res) {
+  var data = [
+    {id: 1, name: 'Live', spaces: [
+      {id: 1, name: 'Corporate site'},
+      {id: 2, name: 'QA site'},
+      {id: 3, name: 'Live site'}
+    ]},
+    {id: 2, name: 'QA', spaces: [
+      {id: 1, name: 'Corporate site'},
+      {id: 2, name: 'QA site'}
+    ]},
+    {id: 3, name: 'Development', spaces: [
+      {id: 2, name: 'QA site'},
+      {id: 3, name: 'Live site'}
+    ]}
+  ];
+  res.json(data);
+});
+
+app.get('/api/space/:id', function (req, res) {
+  var data = [
+    {
+      id: '1',
+      name: 'Public instance 1',
+      version: '1',
+      status: 'ok'
+    },
+    {
+      id: '2',
+      name: 'Public instance 2',
+      version: '2',
+      status: 'not ok'
+    },
+    {
+      id: '3',
+      name: 'Public instance 3',
+      version: '2',
+      status: 'ok'
+    },
+    {
+      id: '4',
+      name: 'Public instance 4',
+      version: '3',
+      status: 'ko'
+    }
+  ];
+  res.json(data);
+});
+
+app.get('*', function (req, res) {
+  res.sendFile(path.resolve(__dirname, '.', 'index.html'))
 });
 
 app.listen(app.get('port'), function () {

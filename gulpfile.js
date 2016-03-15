@@ -11,7 +11,7 @@ var PATHS = {
 };
 
 gulp.task('react', function () {
-  return browserify({entries: './js/app.js', extensions: ['js'], debug: true})
+  return browserify({entries: './js/cockpit.js', extensions: ['js'], debug: true})
     .transform('babelify', {presets: ['es2015', 'react', 'stage-0']})
     .bundle()
     .pipe(source('bundle.js'))

@@ -1,7 +1,5 @@
 'use strict';
 
-import React from 'react';
-
 export default class Instance extends React.Component {
   static propTypes = {
     id: React.PropTypes.string.isRequired,

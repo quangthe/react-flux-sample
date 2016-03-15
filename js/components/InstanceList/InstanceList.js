@@ -1,52 +1,26 @@
 'use strict';
 
-import React from 'react';
 import Instance from '../Instance';
 
 export default class InstanceList extends React.Component {
-  static defaultProps = {
-    instances: [
-      {
-        id: '1',
-        name: 'Public instance 1',
-        version: '1',
-        status: 'ok'
-      },
-      {
-        id: '2',
-        name: 'Public instance 2',
-        version: '2',
-        status: 'not ok'
-      },
-      {
-        id: '3',
-        name: 'Public instance 3',
-        version: '2',
-        status: 'ok'
-      }
-    ]
+  static propTypes = {
+    list: React.PropTypes.array.isRequired
   };
-
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
   }
 
   render() {
+    var $list = (
+      this.props.list.map((value, key) =>
+        <Instance key={key} id={value.id}
+          name={value.name} version={value.version}
+          status={value.status}/>
+      )
+    );
+
     return (
-      <div>
-        <ul className="c-instance-list">
-          {
-            this.props.instances.map((value, key) =>
-              <Instance key={key} id={value.id}
-                name={value.name} version={value.version}
-                status={value.status}/>
-            )
-          }
-        </ul>
-      </div>
+      <ul className="c-instance-list">{$list}</ul>
     );
   }
 }
