@@ -16,8 +16,8 @@ export default class Environment extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.props.name}</h2>
+      <div className="c-environment">
+        <h3>{this.props.name}</h3>
 
         <ul className="spaces">
           <Space name="Corporate Site" />

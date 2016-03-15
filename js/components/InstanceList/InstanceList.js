@@ -4,7 +4,7 @@ import React from 'react';
 import Instance from '../Instance';
 
 export default class InstanceList extends React.Component {
-  state = {
+  static defaultProps = {
     instances: [
       {
         id: '1',
@@ -37,9 +37,9 @@ export default class InstanceList extends React.Component {
   render() {
     return (
       <div>
-        <ul>
+        <ul className="c-instance-list">
           {
-            this.state.instances.map((value, key) =>
+            this.props.instances.map((value, key) =>
               <Instance key={key} id={value.id}
                 name={value.name} version={value.version}
                 status={value.status}/>

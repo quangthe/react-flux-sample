@@ -16,8 +16,8 @@ export default class Space extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>{this.props.name}</h3>
+      <div className="c-space">
+        <h4>{this.props.name}</h4>
         <InstanceList/>
       </div>
     )

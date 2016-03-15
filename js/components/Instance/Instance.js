@@ -1,6 +1,6 @@
 'use strict';
 
-const React = require('react');
+import React from 'react';
 
 export default class Instance extends React.Component {
   static propTypes = {
@@ -12,10 +12,10 @@ export default class Instance extends React.Component {
 
   render() {
     return (
-      <li>
-        <div>{this.props.name}</div>
-        <div>v{this.props.version}</div>
-        <div>{this.props.status}</div>
+      <li className="c-instance">
+        <div className="small-6 column">{this.props.name}</div>
+        <div className="small-3 column">{`v${this.props.version}`}</div>
+        <div className="small-3 column">{this.props.status}</div>
       </li>
     );
   }

@@ -12,15 +12,19 @@ export default class HomePage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.state.productName}</h1>
-        <h2>Setup</h2>
+      <div className="p-home">
+        <div className="callout large primary">
+          <div className="row column text-center">
+            <h1>{this.state.productName}</h1>
+            <h2 className="subheader">Setup</h2>
+          </div>
+        </div>
 
-        <ul className="env">
-          <li><Environment name="Live" /></li>
-          <li><Environment name="QA" /></li>
-          <li><Environment name="Development" /></li>
-        </ul>
+        <div className="row small-12 medium-8 large-6 env">
+          <div><Environment name="Live" /></div>
+          <div><Environment name="QA" /></div>
+          <div><Environment name="Development" /></div>
+        </div>
       </div>
     )
   }

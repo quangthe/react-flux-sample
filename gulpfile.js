@@ -6,6 +6,10 @@ var browserSync = require('browser-sync').create();
 var sourcemaps = require('gulp-sourcemaps');
 var nodemon = require('gulp-nodemon');
 var sass = require('gulp-sass');
+var PATHS = {
+  sass: './node_modules/foundation-sites/scss'
+};
+var started = false;
 
 gulp.task('react', function () {
   return browserify({entries: './js/app.js', extensions: ['js'], debug: true})
@@ -19,7 +23,9 @@ gulp.task('react', function () {
 gulp.task('sass', function () {
   return gulp.src('./sass/**/*.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({
+      includePaths: PATHS.sass
+    }).on('error', sass.logError))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./build'))
     .pipe(browserSync.stream());
@@ -44,8 +50,6 @@ gulp.task('browser-sync', ['nodemon'], function() {
 });
 
 gulp.task('nodemon', function (cb) {
-  var started = false;
-
   return nodemon({
     script: 'server.js'
   }).on('start', function () {
