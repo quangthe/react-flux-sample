@@ -9,7 +9,6 @@ var sass = require('gulp-sass');
 var PATHS = {
   sass: './node_modules/foundation-sites/scss'
 };
-var started = false;
 
 gulp.task('react', function () {
   return browserify({entries: './js/app.js', extensions: ['js'], debug: true})
@@ -43,18 +42,23 @@ gulp.task('watch', ['react', 'sass', 'browser-sync'], function () {
 gulp.task('browser-sync', ['nodemon'], function() {
   browserSync.init(null, {
     proxy: "http://localhost:3000",
-    files: ["./**/*.*"],
+    files: [
+      "./js/**/*.js",
+      "./sass/**/*.sass"
+    ],
     browser: "google chrome",
     port: 4000
   });
 });
 
 gulp.task('nodemon', function (cb) {
+  var started = false;
   return nodemon({
     script: 'server.js'
   }).on('start', function () {
     // to avoid nodemon being started multiple times
     if (!started) {
+      console.log('start node server');
       cb();
       started = true;
     }

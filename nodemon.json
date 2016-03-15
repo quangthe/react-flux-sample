@@ -1,0 +1,25 @@
+{
+  "ignore": [
+    ".git",
+    "gulpfile.js",
+    "node_modules",
+    "build",
+    "images",
+    "sass",
+    "js"
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "events": {
+    "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+  },
+  "watch":[
+    "server.js"
+  ],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js"
+}

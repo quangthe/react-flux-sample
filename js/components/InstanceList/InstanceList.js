@@ -16,7 +16,7 @@ export default class InstanceList extends React.Component {
         id: '2',
         name: 'Public instance 2',
         version: '2',
-        status: 'ok'
+        status: 'not ok'
       },
       {
         id: '3',

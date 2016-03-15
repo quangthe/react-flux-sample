@@ -15,7 +15,7 @@ export default class HomePage extends React.Component {
       <div className="p-home">
         <div className="callout large primary">
           <div className="row column text-center">
-            <h1>{this.state.productName}</h1>
+            <h1>LOCPHAN {this.state.productName}</h1>
             <h2 className="subheader">Setup</h2>
           </div>
         </div>

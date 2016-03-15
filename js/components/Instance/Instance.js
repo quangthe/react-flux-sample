@@ -11,11 +11,15 @@ export default class Instance extends React.Component {
   };
 
   render() {
+    let status = this.props.status === 'ok' ? 'check' : 'close';
+
     return (
       <li className="c-instance">
         <div className="small-6 column">{this.props.name}</div>
         <div className="small-3 column">{`v${this.props.version}`}</div>
-        <div className="small-3 column">{this.props.status}</div>
+        <div className="small-3 column">
+          <i className={`fa fa-${status}`}></i>
+        </div>
       </li>
     );
   }
