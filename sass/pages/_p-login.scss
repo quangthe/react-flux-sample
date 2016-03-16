@@ -1,0 +1,6 @@
+.p-login {
+  label.error {
+    @include form-error;
+    margin: 0 0 10px 0;
+  }
+}

@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp prod",
+    "prod": "gulp prod",
     "watch": "webpack --watch -d"
   },
   "devDependencies": {

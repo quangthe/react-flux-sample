@@ -1,0 +1,15 @@
+.c-environment {
+  border-left: 20px solid #ccc;
+  padding-left: 20px;
+  margin: 0 0 20px 0;
+
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+
+  &:hover {
+    border-color: rgba(#FFA500, .5);
+  }
+}

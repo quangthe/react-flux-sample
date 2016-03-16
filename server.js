@@ -17,6 +17,9 @@ app.use(function (req, res, next) {
   next();
 });
 
+/*
+  Get the environment list and its spaces
+ */
 app.get('/api/env-list', function (req, res) {
   var data = [
     {id: 1, name: 'Live', spaces: [
@@ -36,34 +39,49 @@ app.get('/api/env-list', function (req, res) {
   res.json(data);
 });
 
+/*
+  Get the instance list of a space
+ */
 app.get('/api/space/:id', function (req, res) {
-  var data = [
-    {
-      id: '1',
-      name: 'Public instance 1',
-      version: '1',
-      status: 'ok'
-    },
-    {
-      id: '2',
-      name: 'Public instance 2',
-      version: '2',
-      status: 'not ok'
-    },
-    {
-      id: '3',
-      name: 'Public instance 3',
-      version: '2',
-      status: 'ok'
-    },
-    {
-      id: '4',
-      name: 'Public instance 4',
-      version: '3',
-      status: 'ko'
-    }
-  ];
-  res.json(data);
+  var data = {
+    1: [
+      {
+        id: '1',
+        name: 'Public instance 1',
+        version: '1',
+        status: 'ok'
+      },
+      {
+        id: '2',
+        name: 'Public instance 2',
+        version: '2',
+        status: 'not ok'
+      }
+    ],
+    2: [
+      {
+        id: '3',
+        name: 'Public instance 3',
+        version: '2',
+        status: 'ok'
+      }
+    ],
+    3: [
+      {
+        id: '2',
+        name: 'Public instance 2',
+        version: '2',
+        status: 'not ok'
+      },
+      {
+        id: '4',
+        name: 'Public instance 4',
+        version: '3',
+        status: 'ko'
+      }
+    ]
+  };
+  res.json(data[req.params.id]);
 });
 
 app.get('*', function (req, res) {

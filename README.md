@@ -37,7 +37,7 @@
   * Homepage:
 
   ```javascript
-    <App>
+    <HomePage>
       <EnvironmentList>
         <Environment>
           <SpaceList>
@@ -49,7 +49,7 @@
           </SpaceList>
         </Environment>
       </EnvironmentList>
-    </App>
+    </HomePage>
   ```
   * Login:
 
@@ -61,6 +61,13 @@
         <input type="submit">
       </form>
     </LoginPage>
+    ```
+
+  * Page 404
+
+    ```javascript
+    <NoMatch>
+    </NoMatch>
     ```
 # Development
   * Required global packages:
